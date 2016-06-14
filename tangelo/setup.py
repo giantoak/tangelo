@@ -5,7 +5,7 @@ import os.path
 
 # Recursively collect all files in a given directory.
 def rcollect(path):
-    return sum(map(lambda x: map(lambda y: x[0] + "/" + y, x[2]), os.walk(path)), [])
+    return [['{}/{}'.format(x[0], y) for y in x[2]] for x in os.walk(path)]
 
 # Create the package.
 setup(name="tangelo",
